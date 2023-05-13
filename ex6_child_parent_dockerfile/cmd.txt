@@ -1,0 +1,28 @@
+commands that i followed
+1. Create a new directory named onbuild-parent:
+mkdir onbuild-parent
+2. Navigate to the newly created onbuild-parent directory:
+cd onbuild-parent
+3. Within the onbuild-parent directory, create a file named Dockerfile:
+touch Dockerfile
+4. Now, open the Dockerfile using your favorite text editor:
+vim Dockerfile
+
+docker image build -t syedausafhaider-onbuild-parent .
+docker container run -p 80:80 --name syedausafhaider-onbuild-parent-container -d syedausafhaider-onbuild-parent
+
+Go to the http://127.0.0.1
+
+---------
+mkdir onbuild-child
+
+Navigate to the newly created onbuild-child directory:
+cd onbuild-child
+
+Within the onbuild-child directory, create a file named index.html. This file will be copied to the Docker image by the ONBUILD command during build time:
+vim index.html
+vim Dockerfile
+docker image build -t syedausafhaider-onbuild-child .
+docker container run -p 80:80 --name syedausafhaider-onbuild-child-container -d syedausafhaider-onbuild-child
+docker container stop syedausafhaider-onbuild-child-container
+docker container rm syedausafhaider-onbuild-child-container
