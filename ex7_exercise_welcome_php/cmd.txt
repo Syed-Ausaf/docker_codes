@@ -1,0 +1,2 @@
+    docker container run -p 80:80 --name activity-02-01-container -d
+    docker container run -p 80:80 --name syedausafhaider-php-container -d syedausafhaider-php
