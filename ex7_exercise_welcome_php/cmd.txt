@@ -2,3 +2,6 @@
     docker container run -p 80:80 --name syedausafhaider-php-container -d syedausafhaider-php
 
 http://127.0.0.1/welcome.php
+
+docker container stop syedausafhaider-php-container 
+docker container rm syedausafhaider-php-container 
