@@ -1,0 +1,17 @@
+1. Create the test_registry directory in your home directory:
+mkdir /home/vincesesto/test_registry/
+2. Run the local registry, but in this instance, include the -v option, which connects
+the directory you created in the preceding step to the container directory of /
+var/lib/registry. Also, use the :rw option to make sure you can both read
+and write to the directory:
+docker run -d -p 5000:5000 --restart=always --name registry -v /home/
+vincesesto/test_registry/registry:/var/lib/registry:rw registry
+3. Now, push the image to your newly mounted registry as you normally would:
+docker push dev.docker.local:5000/basic-app:ver1
+4. To verify that the images are now being stored in your newly mounted
+directory, list the files in the registry/docker/registry/v2/
+repositories/ directory.
+ls ~/test_registry/registry/docker/registry/v2/repositories/
+You should see the new images you have just pushed in the previous step:
+basic-app
+This activity has allowed us to start working with some more advanced Docker options. 
